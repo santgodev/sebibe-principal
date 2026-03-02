@@ -1,0 +1,91 @@
+.section {
+    padding: 6rem 1.5rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-family: var(--font-serif);
+}
+
+.address {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.directionsLink {
+    display: inline-block;
+    color: var(--accent-gold);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.directionsLink:hover {
+    border-bottom-color: var(--accent-gold);
+}
+
+.mapWrapper {
+    width: 100%;
+    height: 500px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border);
+}
+
+.mapFrame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) invert(92%) hue-rotate(180deg) brightness(85%) contrast(90%);
+    /* Cinematic Dark Map */
+    transition: filter 0.5s ease;
+}
+
+.mapWrapper:hover .mapFrame {
+    filter: grayscale(0%) invert(0%);
+    /* Color reveal on hover */
+}
+
+/* Add a gradient overlay to blend map edges */
+.mapWrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 100px rgba(2, 6, 23, 0.8);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 2rem;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 350px;
+    text-align: left;
+    z-index: 10;
+}

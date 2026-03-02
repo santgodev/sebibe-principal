@@ -1,0 +1,165 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 2rem 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    background: transparent;
+}
+
+.headerScrolled {
+    background: rgba(2, 6, 23, 0.9);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    font-family: var(--font-serif);
+}
+
+.logoDot {
+    color: var(--accent-gold);
+    font-size: 2rem;
+    line-height: 0;
+    margin-left: 2px;
+}
+
+.navDesktop {
+    display: none;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .navDesktop {
+        display: flex;
+    }
+}
+
+.navLink {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--primary-muted);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.navLink:hover {
+    color: var(--foreground);
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.ctaButton {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--foreground);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background: white;
+    color: var(--background);
+    border-color: white;
+}
+
+.mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+    .mobileToggle {
+        display: none;
+    }
+}
+
+.mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+}
+
+.mobileMenuOpen {
+    max-height: 100vh;
+    padding-bottom: 2rem;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobileNavList {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.mobileNavLink {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    color: var(--primary-muted);
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.mobileNavLink:hover {
+    color: var(--accent-gold);
+}

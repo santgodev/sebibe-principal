@@ -1,0 +1,368 @@
+.pageWrapper {
+    min-height: 100vh;
+    background: #020617;
+    /* Deep cinematic dark */
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ambient Subtle Glow - Neon effect */
+.ambientLight {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 30%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.header {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    font-family: var(--font-serif);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.titleHighlight {
+    background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+.treeContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+/* Abstract Minimal Tree Styling */
+.treeSVGContainer {
+    position: absolute;
+    bottom: -100px;
+    /* Anchored to bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    height: 1200px;
+    z-index: 1;
+    /* Behind the grid */
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.treeSvg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.decorativeBranch {
+    stroke-width: 1px;
+    stroke-linecap: round;
+    opacity: 0.3;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: flowData 5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.mainBranch {
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: flowData 3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.nodePoint {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: fadeInNode 1s ease forwards 2.5s, pulseNode 3s infinite alternate;
+}
+
+@keyframes flowData {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeInNode {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulseNode {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+    }
+
+    100% {
+        transform: scale(1.5);
+        filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8));
+    }
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 450px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-xl);
+    overflow: visible;
+    /* Changed to visible to let the small avatar stick out */
+    cursor: pointer;
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    backdrop-filter: blur(0px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Staggered Fruit Positioning (Desktop) */
+@media (min-width: 1024px) {
+
+    .fruitPos1,
+    .fruitPos4 {
+        margin-top: 80px;
+    }
+
+    .fruitPos2,
+    .fruitPos5 {
+        margin-top: -30px;
+    }
+
+    /* Center fruit higher like top canopy */
+    .fruitPos3,
+    .fruitPos6 {
+        margin-top: 80px;
+    }
+}
+
+/* Dim effect when another fruit is selected */
+.card.dimmed {
+    opacity: 0.4;
+    filter: grayscale(80%) blur(2px);
+    transform: scale(0.95);
+    z-index: 5;
+}
+
+.card:hover,
+.card.active {
+    background: rgba(15, 23, 42, 0.8);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(16px);
+    transform: translateY(-10px) scale(1.02);
+    /* Pop out forward */
+    z-index: 50;
+    opacity: 1 !important;
+    /* Cancel dim */
+    filter: grayscale(0%) blur(0px) !important;
+}
+
+/* Floating Avatar Configuration */
+.avatarWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Float animation */
+@keyframes floatAvatar {
+    0% {
+        transform: translate(-50%, calc(-50% - 10px));
+    }
+
+    50% {
+        transform: translate(-50%, calc(-50% + 5px));
+    }
+
+    100% {
+        transform: translate(-50%, calc(-50% - 10px));
+    }
+}
+
+.card:not(:hover):not(.active) .avatarWrapper {
+    animation: floatAvatar 6s ease-in-out infinite;
+}
+
+/* Hover State: Avatar shrinks to an elegant profile badge in the top right corner */
+/* It feels like picking the fruit */
+.card:hover .avatarWrapper,
+.card.active .avatarWrapper {
+    top: -20px;
+    left: 85%;
+    /* Keeps it attached mostly inside the card space so it doesn't break mobile boundaries */
+    transform: translate(-50%, 0) scale(0.35);
+    opacity: 1;
+    filter: drop-shadow(0 15px 25px rgba(212, 175, 55, 0.4));
+}
+
+/* Background overlay inside the card on hover */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 10;
+}
+
+.card:hover::before,
+.card.active::before {
+    opacity: 1;
+}
+
+/* Text Content Area */
+.contentBox {
+    position: absolute;
+    inset: 0;
+    /* Cover the full card */
+    padding: 2.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center the actual testimonial in the whole card space */
+    align-items: center;
+    text-align: center;
+    z-index: 30;
+    border-radius: var(--radius-xl);
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Faster entry */
+    transition-delay: 0.1s;
+    /* wait slightly for avatar to shrink */
+}
+
+.card:hover .contentBox,
+.card.active .contentBox {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.role {
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.testimonial {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--primary-muted);
+    font-style: italic;
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+/* Little quote ornament */
+.testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: rgba(212, 175, 55, 0.2);
+    line-height: 1;
+}
+
+/* Action Indicator */
+.indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.indicator span {
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+}
+
+.card:hover .indicator,
+.card.active .indicator {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+}

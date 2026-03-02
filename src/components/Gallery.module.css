@@ -1,0 +1,97 @@
+.section {
+    padding: 10rem 1.5rem;
+    background: #050a14;
+    /* Slightly different dark shade */
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 6rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    /* Serif */
+}
+
+.subtitle {
+    font-family: var(--font-sans);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Emotional Masonry */
+.grid {
+    column-count: 1;
+    column-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        column-count: 3;
+    }
+}
+
+.item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    /* Subtle radius for elegance */
+}
+
+.image {
+    width: 100%;
+    display: block;
+    filter: contrast(1.1);
+    /* Slightly enhanced contrast only */
+    transition: all 0.8s ease;
+}
+
+.item:hover .image {
+    filter: contrast(1);
+    transform: scale(1.05);
+}
+
+/* Subtle overlay info */
+.info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.item:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.caption {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: white;
+    font-style: italic;
+    display: block;
+}

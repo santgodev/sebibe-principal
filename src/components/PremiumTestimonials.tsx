@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./PremiumTestimonials.module.css";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 const testimonials = [
     {
@@ -304,11 +305,16 @@ export default function PremiumTestimonials() {
                         className={`${styles.card} ${activeId === item.id ? styles.active : ''}`}
                         onClick={() => handleCardClick(item.id)}
                     >
-                        {/* Dynamic Background Image - full size */}
-                        <div
-                            className={styles.avatarBg}
-                            style={{ backgroundImage: `url('${item.image}')` }}
-                        />
+                        {/* Optimized Background Image */}
+                        <div className={styles.avatarBg}>
+                            <Image
+                                src={item.image}
+                                alt={item.name}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                className={styles.testimonialImg}
+                            />
+                        </div>
 
                         {/* Always visible overlay info when not active */}
                         <div className={styles.cardHeader}>

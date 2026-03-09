@@ -10,10 +10,29 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "SEBIBE | Seminario Bíblico Internacional Berea",
-  description: "Formando líderes para la misión global con excelencia y compromiso.",
+  description: "Formación teológica inmersiva y comunitaria en Fusagasugá. Discipulado profundo para impactar una generación.",
+  keywords: ["seminario biblico", "teologia", "berea", "formacion ministerial", "fusagasuga", "mision global", "estudio biblico"],
+  authors: [{ name: "SEBIBE" }],
+  viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    title: "SEBIBE | Seminario Bíblico Internacional Berea",
+    description: "Formación para lo Eterno y Profundo. Vive una experiencia de discipulado inmersivo.",
+    url: "https://sebibe.org",
+    siteName: "SEBIBE",
+    images: [
+      {
+        url: "https://sebibe.org/wp-content/uploads/2026/03/IMG_4034-scaled.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SEBIBE Formación Teológica",
+      },
+    ],
+    locale: "es_CO",
+    type: "website",
+  },
   icons: {
-    icon: "http://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
-    apple: "http://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
+    icon: "https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
+    apple: "https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
   },
 };
 
@@ -37,7 +56,7 @@ export default function RootLayout({
               "@type": "EducationalOrganization",
               "name": "Seminario Bíblico Internacional Berea - SEBIBE",
               "url": "https://sebibe.org",
-              "logo": "http://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
+              "logo": "https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
               "description": "Formando líderes para la misión global con excelencia y compromiso.",
               "address": {
                 "@type": "PostalAddress",

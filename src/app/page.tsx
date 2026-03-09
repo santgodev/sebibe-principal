@@ -1,12 +1,27 @@
+"use client";
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import ProgramsSection from "@/components/ProgramsSection";
-import VideoSection from "@/components/VideoSection";
+import FacilitiesShowcase from "@/components/FacilitiesShowcase";
 // import FacultySection from "@/components/FacultySection";
-import Testimonials from "@/components/Testimonials";
-import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
-import LocationMap from "@/components/LocationMap";
+
+// Dynamic imports for heavy components
+const Gallery = dynamic(() => import("@/components/Gallery"), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-900/50 rounded-xl m-8" />,
+  ssr: false
+});
+
+const LocationMap = dynamic(() => import("@/components/LocationMap"), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-900/50 rounded-xl m-8" />,
+  ssr: false
+});
+
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="h-64 animate-pulse bg-slate-900/30 rounded-xl m-8" />,
+  ssr: false
+});
 
 export default function Home() {
   return (
@@ -14,7 +29,7 @@ export default function Home() {
       <Hero />
       <Features />
       <ProgramsSection />
-      <VideoSection />
+      <FacilitiesShowcase />
       {/* <FacultySection /> */}
       <Testimonials />
       <Gallery />

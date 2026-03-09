@@ -1,14 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
+  basePath: "/nuevaversion", // Important for hosting at sebibe.org/nuevaversion
+  assetPrefix: "/nuevaversion", // Ensures JS/CSS point to the subdirectory
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "sebibe.org",
-      },
-      {
-        protocol: "http",
         hostname: "sebibe.org",
       },
       {

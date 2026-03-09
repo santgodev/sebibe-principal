@@ -15,11 +15,12 @@ export default function Hero() {
                     playsInline
                     className={styles.bgVideo}
                 >
-                    <source src="http://sebibe.org/wp-content/uploads/2026/03/BEREA-VIDEO.mp4" type="video/mp4" />
+                    <source src="https://sebibe.org/wp-content/uploads/2026/03/BEREA-VIDEO.mp4" type="video/mp4" />
+                    <track kind="captions" label="Español" default />
                 </video>
                 <Image
                     src="https://sebibe.org/wp-content/uploads/2026/03/IMG_4034-scaled.jpg"
-                    alt="Background"
+                    alt="Estudiantes del Seminario Bíblico Berea en un momento de comunión y estudio"
                     fill
                     priority
                     sizes="100vw"

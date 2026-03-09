@@ -17,7 +17,7 @@ const features = [
         title: "Misiones", titleEn: "Missions",
         sub: "Globales", subEn: "Global",
         desc: "El mundo no necesita turistas, necesita mensajeros. Entrenamiento intercultural real en las fronteras de la fe.", descEn: "The world doesn't need tourists, it needs messengers. Real cross-cultural training on the frontiers of faith.",
-        img: "http://sebibe.org/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-10-at-7.56.56-PM.jpeg", // Mission field
+        img: "https://sebibe.org/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-10-at-7.56.56-PM.jpeg", // Mission field
         link: "/programas/misiones",
     },
     {

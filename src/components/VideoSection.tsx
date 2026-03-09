@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function VideoSection() {
     const { t } = useLanguage();
     const [open, setOpen] = useState(false);
-    const VIDEO_URL = "http://sebibe.org/wp-content/uploads/2025/09/Video-presentacion_SEBIBE.mp4";
+    const VIDEO_URL = "https://sebibe.org/wp-content/uploads/2025/09/Video-presentacion_SEBIBE.mp4";
 
     return (
         <>
@@ -64,6 +64,7 @@ export default function VideoSection() {
                                 autoPlay
                                 className={styles.iframe}
                             >
+                                <track kind="captions" label="Español" default />
                                 {t("vid_unsupported", "Tu navegador no soporta videos HTML5.", "Your browser does not support HTML5 videos.")}
                             </video>
                         </div>

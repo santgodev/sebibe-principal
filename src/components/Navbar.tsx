@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
+import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export default function Navbar() {
+    const { language, setLanguage, t } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -17,11 +20,10 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "Inicio", href: "/" },
-        { name: "Nosotros", href: "/nosotros" },
-        { name: "Programas", href: "/programas" },
-        { name: "Testimonios", href: "/testimonios" },
-        { name: "Contacto", href: "/contacto" },
+        { name: t("inicio"), href: "/" },
+        { name: t("nosotros"), href: "/nosotros" },
+        { name: t("testimonios"), href: "/testimonios" },
+        { name: t("contacto"), href: "https://wa.me/573144787072" },
     ];
 
     return (
@@ -29,7 +31,14 @@ export default function Navbar() {
             <div className={styles.container}>
                 {/* Logo */}
                 <Link href="/" className={styles.logo}>
-                    SEBIBE<span className={styles.logoDot}>.</span>
+                    <Image
+                        src="http://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png"
+                        alt="SEBIBE"
+                        width={180}
+                        height={55}
+                        className={styles.logoImg}
+                        priority
+                    />
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -43,8 +52,22 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <Link href="/matriculas" className={styles.ctaButton}>
-                        Matricúlate
+
+                    {/* Language Switcher Desktop */}
+                    <div className={styles.langSwitcher}>
+                        <button
+                            className={`${styles.langBtn} ${language === 'es' ? styles.langActive : ''}`}
+                            onClick={() => setLanguage('es')}
+                        >ES</button>
+                        <span className={styles.langDivider}>|</span>
+                        <button
+                            className={`${styles.langBtn} ${language === 'en' ? styles.langActive : ''}`}
+                            onClick={() => setLanguage('en')}
+                        >EN</button>
+                    </div>
+
+                    <Link href="https://wa.me/573144787072" className={styles.ctaButton}>
+                        {t("matriculate")}
                     </Link>
                 </nav>
 
@@ -86,12 +109,26 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+
+                    {/* Language Switcher Mobile */}
+                    <div className={styles.mobileLangSwitcher}>
+                        <button
+                            className={`${styles.langBtn} ${language === 'es' ? styles.langActive : ''}`}
+                            onClick={() => { setLanguage('es'); setIsMobileMenuOpen(false); }}
+                        >ES</button>
+                        <span className={styles.langDivider}>|</span>
+                        <button
+                            className={`${styles.langBtn} ${language === 'en' ? styles.langActive : ''}`}
+                            onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }}
+                        >EN</button>
+                    </div>
+
                     <Link
-                        href="/matriculas"
+                        href="https://wa.me/573144787072"
                         className={styles.mobileCta}
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
-                        Matricúlate Ahora
+                        {t("matriculate_ahora")}
                     </Link>
                 </div>
             </div>

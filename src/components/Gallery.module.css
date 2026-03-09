@@ -57,8 +57,15 @@
     /* Subtle radius for elegance */
 }
 
-.image {
+.imageContainer {
+    position: relative;
     width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
     display: block;
     filter: contrast(1.1);
     /* Slightly enhanced contrast only */
@@ -94,4 +101,42 @@
     color: white;
     font-style: italic;
     display: block;
+}
+
+/* Mobile Slider for Gallery */
+@media (max-width: 767px) {
+    .section {
+        padding: 6rem 0;
+    }
+
+    .header {
+        margin-bottom: 3rem;
+        padding: 0 1.5rem;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1.25rem;
+        padding: 0 1.5rem 2rem 1.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        column-count: unset;
+    }
+
+    .grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .item {
+        flex: 0 0 88%;
+        scroll-snap-align: center;
+        margin-bottom: 0;
+    }
 }

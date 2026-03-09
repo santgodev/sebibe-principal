@@ -6,11 +6,18 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "sebibe.org",
-        pathname: "/wp-content/uploads/**",
+      },
+      {
+        protocol: "http",
+        hostname: "sebibe.org",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.dicebear.com",
       }
     ],
   },

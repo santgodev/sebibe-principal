@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./StudentStories.module.css";
+import Image from "next/image";
 
 const students = [
     {
@@ -50,7 +51,13 @@ export default function StudentStories() {
                             aria-expanded={activeId === student.id}
                         >
                             <div className={styles.imageWrapper}>
-                                <img src={student.image} alt={student.name} className={styles.image} />
+                                <Image
+                                    src={student.image}
+                                    alt={student.name}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    className={styles.image}
+                                />
                                 <div className={styles.overlay}>
                                     <div>
                                         <h3 className={styles.name}>{student.name}</h3>

@@ -7,31 +7,24 @@ import Image from "next/image";
 export default function VideoSection() {
     const { t } = useLanguage();
     const [open, setOpen] = useState(false);
-    const VIDEO_URL = "https://sebibe.org/wp-content/uploads/2025/09/Video-presentacion_SEBIBE.mp4";
+    const VIDEO_URL = "/assets/videos/about-us-video.mp4";
 
     return (
         <>
             <section className={styles.section}>
                 <div className={styles.bg}>
                     <Image
-                        src="https://sebibe.org/wp-content/uploads/2026/03/IMG_4034-scaled.jpg"
-                        alt="Video preview"
+                        src="/assets/images/sections/about-us.jpg"
+                        alt="SEBIBE - Formación Teológica y Discipulado"
                         fill
                         sizes="100vw"
                         className={styles.bgImg}
+                        priority
                     />
                     <div className={styles.overlay} />
                 </div>
 
                 <div className={styles.content}>
-                    <span className={styles.eyebrow}>{t("vid_eyebrow", "UN VISTAZO INTERIOR", "AN INSIDE LOOK")}</span>
-                    <h2 className={styles.title}>
-                        {t("vid_title_1", "Siente lo que es", "Feel what it is like")}<br />
-                        <em>{t("vid_title_2", "estudiar en SEBIBE", "to study at SEBIBE")}</em>
-                    </h2>
-                    <p className={styles.desc}>
-                        {t("vid_desc", "1 minuto que puede cambiar el rumbo de tu llamado.", "1 minute that can change the course of your calling.")}
-                    </p>
                     <button className={styles.playBtn} onClick={() => setOpen(true)} aria-label="Reproducir video">
                         <div className={styles.playOuter}>
                             <div className={styles.playMiddle}>
@@ -63,6 +56,7 @@ export default function VideoSection() {
                                 controls
                                 autoPlay
                                 className={styles.iframe}
+                                poster="/assets/images/sections/about-us.jpg"
                             >
                                 <track kind="captions" label="Español" default />
                                 {t("vid_unsupported", "Tu navegador no soporta videos HTML5.", "Your browser does not support HTML5 videos.")}

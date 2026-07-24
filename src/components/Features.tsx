@@ -10,21 +10,21 @@ const features = [
         title: "Teología", titleEn: "Theology",
         sub: "Profunda", subEn: "Deep",
         desc: "No estudiarás solo libros, estudiarás el corazón de Dios. Un rigor académico que desafía tu mente y enciende tu espíritu.", descEn: "You won't just study books, you'll study the heart of God. Academic rigor that challenges your mind and ignites your spirit.",
-        img: "https://sebibe.org/wp-content/uploads/2024/01/MG_6653-2048x1365.jpg", // Classroom/Study
+        img: "/assets/images/sections/features-classroom.jpg", // Classroom/Study
         link: "/programas/teologia",
     },
     {
         title: "Misiones", titleEn: "Missions",
         sub: "Globales", subEn: "Global",
         desc: "El mundo no necesita turistas, necesita mensajeros. Entrenamiento intercultural real en las fronteras de la fe.", descEn: "The world doesn't need tourists, it needs messengers. Real cross-cultural training on the frontiers of faith.",
-        img: "https://sebibe.org/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-10-at-7.56.56-PM.jpeg", // Mission field
+        img: "/assets/images/sections/features-missions.jpg", // Mission field
         link: "/programas/misiones",
     },
     {
         title: "Comunidad", titleEn: "Community",
         sub: "Vibrante", subEn: "Vibrant",
         desc: "Más que compañeros de clase, encontrarás hermanos de batalla. Una vida comunitaria que forja carácter para siempre.", descEn: "More than classmates, you will find brothers and sisters in battle. A community life that builds character forever.",
-        img: "https://sebibe.org/wp-content/uploads/2024/01/MG_6486-2048x1365.jpg", // Community/Gathering
+        img: "/assets/images/sections/features-community.jpeg", // Community/Gathering
         link: "/vida-comunitaria",
     },
 ];

@@ -6,6 +6,34 @@ import styles from "./Navbar.module.css";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
+// Flags SVGs as Small Components
+const FlagES = () => (
+    <svg width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style={{ borderRadius: '50%', objectFit: 'cover' }}>
+        <path d="M0 108.8h512v294.4H0z" fill="#ffc400" />
+        <path d="M0 0h512v108.8H0zm0 403.2h512V512H0z" fill="#c60b1e" />
+    </svg>
+);
+
+const FlagEN = () => (
+    <svg width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style={{ borderRadius: '50%', objectFit: 'cover' }}>
+        <rect width="512" height="512" fill="#fff" />
+        <path d="M512 39.4H0v39.4h512V39.4zm0 78.8H0v39.4h512v-39.4zm0 78.7H0V236.3h512v-39.4zm0 78.8H0v39.4h512v-39.4zm0 78.8H0v39.4h512v-39.4zm0 78.8H0v39.4h512v-39.4z" fill="#b22234" />
+        <rect width="244.5" height="210" fill="#3c3b6e" />
+        {/* Simple dots as stars */}
+        <circle cx="45" cy="45" r="8" fill="#fff" />
+        <circle cx="105" cy="45" r="8" fill="#fff" />
+        <circle cx="165" cy="45" r="8" fill="#fff" />
+        <circle cx="225" cy="45" r="8" fill="#fff" />
+        <circle cx="75" cy="95" r="8" fill="#fff" />
+        <circle cx="135" cy="95" r="8" fill="#fff" />
+        <circle cx="195" cy="95" r="8" fill="#fff" />
+        <circle cx="45" cy="145" r="8" fill="#fff" />
+        <circle cx="105" cy="145" r="8" fill="#fff" />
+        <circle cx="165" cy="145" r="8" fill="#fff" />
+        <circle cx="225" cy="145" r="8" fill="#fff" />
+    </svg>
+);
+
 export default function Navbar() {
     const { language, setLanguage, t } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -22,7 +50,8 @@ export default function Navbar() {
     const navLinks = [
         { name: t("inicio"), href: "/" },
         { name: t("nosotros"), href: "/nosotros" },
-        { name: t("testimonios"), href: "/testimonios" },
+        { name: t("vive_tu_llamado"), href: "/vive-tu-llamado" },
+        { name: t("testimonios"), href: "/estudiantes" },
         { name: t("contacto"), href: "https://wa.me/573144787072" },
     ];
 
@@ -32,7 +61,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className={styles.logo}>
                     <Image
-                        src="https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png"
+                        src="/assets/images/brand/logo-main.png"
                         alt="SEBIBE"
                         width={180}
                         height={55}
@@ -53,47 +82,65 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-                    {/* Language Switcher Desktop */}
-                    <div className={styles.langSwitcher}>
+                    <div className={styles.langDesktop}>
                         <button
-                            className={`${styles.langBtn} ${language === 'es' ? styles.langActive : ''}`}
+                            className={`${styles.langIcon} ${language === 'es' ? styles.langActiveIcon : ''}`}
                             onClick={() => setLanguage('es')}
-                        >ES</button>
-                        <span className={styles.langDivider}>|</span>
+                            title="Español"
+                        >
+                            <FlagES />
+                        </button>
                         <button
-                            className={`${styles.langBtn} ${language === 'en' ? styles.langActive : ''}`}
+                            className={`${styles.langIcon} ${language === 'en' ? styles.langActiveIcon : ''}`}
                             onClick={() => setLanguage('en')}
-                        >EN</button>
+                            title="English"
+                        >
+                            <FlagEN />
+                        </button>
                     </div>
 
-                    <Link href="https://wa.me/573144787072" className={styles.ctaButton}>
-                        {t("matriculate")}
-                    </Link>
+                    <div className={styles.actionButtons}>
+                        <Link href="/biblioteca" className={styles.ctaButtonSecondary}>
+                            Biblioteca
+                        </Link>
+                        <Link href="https://wa.me/573144787072" className={styles.ctaButton}>
+                            {t("matriculate")}
+                        </Link>
+                    </div>
                 </nav>
 
-                {/* Mobile Menu Button */}
-                <button
-                    className={styles.mobileToggle}
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle menu"
-                >
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                {/* Mobile Actions */}
+                <div className={styles.mobileActions}>
+                    <div className={styles.langMobilePill}>
+                        <button
+                            className={`${styles.langBtnPill} ${language === 'es' ? styles.langActivePill : ''}`}
+                            onClick={() => setLanguage('es')}
+                        >
+                            <FlagES />
+                        </button>
+                        <button
+                            className={`${styles.langBtnPill} ${language === 'en' ? styles.langActivePill : ''}`}
+                            onClick={() => setLanguage('en')}
+                        >
+                            <FlagEN />
+                        </button>
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        className={styles.mobileToggle}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle menu"
                     >
-                        {isMobileMenuOpen ? (
-                            <path d="M18 6L6 18M6 6l12 12" />
-                        ) : (
-                            <path d="M3 12h18M3 6h18M3 18h18" />
-                        )}
-                    </svg>
-                </button>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            {isMobileMenuOpen ? (
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            ) : (
+                                <path d="M3 12h18M3 6h18M3 18h18" />
+                            )}
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -110,26 +157,22 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-                    {/* Language Switcher Mobile */}
-                    <div className={styles.mobileLangSwitcher}>
-                        <button
-                            className={`${styles.langBtn} ${language === 'es' ? styles.langActive : ''}`}
-                            onClick={() => { setLanguage('es'); setIsMobileMenuOpen(false); }}
-                        >ES</button>
-                        <span className={styles.langDivider}>|</span>
-                        <button
-                            className={`${styles.langBtn} ${language === 'en' ? styles.langActive : ''}`}
-                            onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }}
-                        >EN</button>
+                    <div className={styles.mobileActionButtons}>
+                        <Link
+                            href="/biblioteca"
+                            className={styles.mobileCtaSecondary}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Biblioteca
+                        </Link>
+                        <Link
+                            href="https://wa.me/573144787072"
+                            className={styles.mobileCta}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {t("matriculate_ahora")}
+                        </Link>
                     </div>
-
-                    <Link
-                        href="https://wa.me/573144787072"
-                        className={styles.mobileCta}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        {t("matriculate_ahora")}
-                    </Link>
                 </div>
             </div>
         </header>

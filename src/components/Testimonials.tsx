@@ -5,34 +5,22 @@ import Image from "next/image";
 
 const testimonials = [
     {
-        name: "Hébert, Luz y Caleb",
-        role: "Pastores en Amazonas", roleEn: "Pastors in Amazonas",
-        quote: "El SEBIBE nos ayudó a entender como Dios puede usar de diferentes maneras a las personas, nos capacitó y ayudó para venir al Amazonas a servir a las comunidades indígenas.", quoteEn: "SEBIBE helped us understand how God can use people in different ways, trained us and helped us come to the Amazon to serve indigenous communities.",
-        image: "https://sebibe.org/wp-content/uploads/2024/09/Hebert-Luz-y-Caleb-1024x1024.jpg",
-    },
-    {
-        name: "Otoniel y Noralba",
-        role: "Misioneros en La Guajira", roleEn: "Missionaries in La Guajira",
-        quote: "La formación teológica fue clave para nuestro ministerio transcultural.", quoteEn: "Theological training was key for our cross-cultural ministry.",
-        image: "https://sebibe.org/wp-content/uploads/2024/09/Otoniel-y-Noralba-1024x1024.jpg",
-    },
-    {
         name: "Familia Pastoral",
         role: "Graduados 2023", roleEn: "Graduates 2023",
         quote: "Una experiencia que transformó nuestra visión del reino de Dios.", quoteEn: "An experience that transformed our vision of God's kingdom.",
-        image: "https://sebibe.org/wp-content/uploads/2024/01/MG_6380-2048x1365.jpg", // Placeholder until real image
+        image: "/assets/images/sections/testimonial-placeholder.jpg", // Placeholder until real image
     },
     {
         name: "Juan Pérez",
         role: "Estudiante de Teología", roleEn: "Theology Student",
         quote: "Aquí encontré no solo conocimiento, sino una familia espiritual.", quoteEn: "Here I found not only knowledge, but a spiritual family.",
-        image: "https://sebibe.org/wp-content/uploads/2024/01/MG_6486-2048x1365.jpg",
+        image: "/assets/images/sections/features-community.jpeg",
     },
     {
         name: "María González",
         role: "Líder de Jóvenes", roleEn: "Youth Leader",
         quote: "Las herramientas de liderazgo han sido vitales para mi servicio en la iglesia local.", quoteEn: "The leadership tools have been vital for my service in the local church.",
-        image: "https://sebibe.org/wp-content/uploads/2024/01/DSC_0025-2048x1365.jpg",
+        image: "/assets/images/sections/features-library.jpg",
     },
 ];
 

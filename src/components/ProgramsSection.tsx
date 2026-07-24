@@ -112,7 +112,7 @@ export default function ProgramsSection() {
                         aria-labelledby={`tab-${active}`}
                     >
                         <Image
-                            src="https://sebibe.org/wp-content/uploads/2026/03/INSTALACIONES.jpeg"
+                            src="/assets/images/sections/installations.jpg"
                             alt="Fondo de programa"
                             fill
                             className={styles.detailBg}

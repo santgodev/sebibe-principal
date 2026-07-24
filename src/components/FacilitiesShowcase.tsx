@@ -52,7 +52,7 @@ export default function FacilitiesShowcase() {
             <div className={styles.videoWrapper}>
                 <video
                     ref={videoRef}
-                    src="https://sebibe.org/wp-content/uploads/2026/03/instalaciones.mp4"
+                    src="/assets/videos/facilities.mp4"
                     autoPlay
                     loop
                     muted
@@ -67,13 +67,13 @@ export default function FacilitiesShowcase() {
 
             <div className={styles.content}>
                 <div className={styles.textContainer}>
-                    <span className={styles.eyebrow}>{t("fac_eyebrow", "NUESTRA CASA", "OUR HOME")}</span>
+                    <span className={styles.eyebrow}>{t("fac_eyebrow")}</span>
                     <div className={`${styles.titleWrapper} ${fade ? styles.fadeIn : styles.fadeOut}`}>
                         <h2 className={styles.title}>{currentText}</h2>
                         <div className={styles.underline} />
                     </div>
                     <p className={styles.desc}>
-                        {t("fac_desc", "Diseñado para el encuentro, el estudio y la transformación.", "Designed for encounter, study, and transformation.")}
+                        {t("fac_desc")}
                     </p>
                 </div>
             </div>

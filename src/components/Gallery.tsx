@@ -6,12 +6,12 @@ import Image from "next/image";
 
 // Using real SEBIBE images for emotional impact
 const images = [
-    { src: "https://sebibe.org/wp-content/uploads/2026/03/IMG_2111-scaled.jpg", alt: "Comunidad", altEn: "Community" },
-    { src: "https://sebibe.org/wp-content/uploads/2026/03/MG_3653l-scaled.jpg", alt: "Adoración", altEn: "Worship" },
-    { src: "https://sebibe.org/wp-content/uploads/2026/03/20240610121131_IMG_4503.jpg", alt: "Estudio", altEn: "Study" },
-    { src: "https://sebibe.org/wp-content/uploads/2026/03/IMG_4038-scaled.jpg", alt: "Amistad", altEn: "Friendship" },
-    { src: "https://sebibe.org/wp-content/uploads/2026/03/MG_3653-scaled.jpg", alt: "Servicio", altEn: "Service" },
-    { src: "https://sebibe.org/wp-content/uploads/2025/09/1.png", alt: "Graduación", altEn: "Graduation" },
+    { src: "/assets/images/gallery/community.jpg", alt: "Comunidad", altEn: "Community" },
+    { src: "/assets/images/gallery/worship.jpg", alt: "Adoración", altEn: "Worship" },
+    { src: "/assets/images/gallery/study.jpg", alt: "Estudio", altEn: "Study" },
+    { src: "/assets/images/gallery/friendship.jpg", alt: "Amistad", altEn: "Friendship" },
+    { src: "/assets/images/gallery/service.jpg", alt: "Servicio", altEn: "Service" },
+    { src: "/assets/images/gallery/graduation.png", alt: "Graduación", altEn: "Graduation" },
 ];
 
 export default function Gallery() {

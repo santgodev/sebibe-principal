@@ -21,13 +21,12 @@
   --accent-glow: #D4AF37;
   /* Gold Glow */
 
-  /* Deep Cinematic Background */
-  --background: #020617;
-  /* Deep Navy/Black */
-  --foreground: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --surface: #0F172A;
-  --border: rgba(255, 255, 255, 0.08);
+  /* Deep Cinematic Background - Slightly lightened for better mobile visibility */
+  --background: #0f172a; /* Slate 900 instead of pure black/navy */
+  --foreground: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --surface: #1e293b; /* Slate 800 for cards/sections */
+  --border: rgba(255, 255, 255, 0.12);
 
   /* Typography */
   --font-serif: 'Playfair Display', serif;

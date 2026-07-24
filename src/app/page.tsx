@@ -27,9 +27,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Features />
-      <ProgramsSection />
       <FacilitiesShowcase />
+      <ProgramsSection />
+      <Features />
       {/* <FacultySection /> */}
       <Testimonials />
       <Gallery />

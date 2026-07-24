@@ -14,7 +14,7 @@ export default function Footer() {
                     <div>
                         <Link href="/" className={styles.brandName}>
                             <Image
-                                src="https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png"
+                                src="/assets/images/brand/logo-main.png"
                                 alt="SEBIBE"
                                 width={180}
                                 height={60}

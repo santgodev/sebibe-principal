@@ -15,11 +15,11 @@ export default function Hero() {
                     playsInline
                     className={styles.bgVideo}
                 >
-                    <source src="https://sebibe.org/wp-content/uploads/2026/03/BEREA-VIDEO.mp4" type="video/mp4" />
+                    <source src="/assets/videos/hero-loop.mp4" type="video/mp4" />
                     <track kind="captions" label="Español" default />
                 </video>
                 <Image
-                    src="https://sebibe.org/wp-content/uploads/2026/03/IMG_4034-scaled.jpg"
+                    src="/assets/images/sections/hero-main.jpg"
                     alt="Estudiantes del Seminario Bíblico Berea en un momento de comunión y estudio"
                     fill
                     priority
@@ -30,10 +30,13 @@ export default function Hero() {
             </div>
 
             <div className={styles.content}>
-                <div className={styles.subtitle}>{t("hero_subtitle_top") || "Seminario Bíblico Berea"}</div>
+                <div className={styles.subtitleContainer}>
+                    <div className={styles.subtitle}>{t("hero_subtitle_top") || "Seminario Bíblico Berea"}</div>
+                    <div className={styles.hoverSlogan}>{t("hero_hover_slogan") || "Formación para lo Eterno y Profundo"}</div>
+                </div>
                 <h1 className={styles.title}>
-                    {t("hero_title_1") || "Formación para lo"} <br />
-                    <span className={styles.titleItalic}>{t("hero_title_2") || "Eterno y Profundo"}</span>
+                    {t("hero_title_1") || "Formando líderes para la"} <br />
+                    <span className={styles.titleItalic}>{t("hero_title_2") || "Misión Global"}</span>
                 </h1>
                 <p className={styles.desc}>
                     {t("hero_desc") || "Una experiencia inmersiva de disipulado, teología y comunidad. No es solo estudiar, es ser transformado para impactar una generación."}

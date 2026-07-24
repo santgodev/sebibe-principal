@@ -1,7 +1,7 @@
 .section {
     position: relative;
-    height: 80vh;
-    min-height: 600px;
+    height: 90vh;
+    min-height: 700px;
     width: 100%;
     overflow: hidden;
     background: var(--background);
@@ -17,16 +17,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7) contrast(1.1);
+    filter: brightness(0.8) contrast(1.05); /* Slightly brighter and less contrasty */
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg,
-            rgba(2, 6, 23, 0.9) 0%,
-            rgba(2, 6, 23, 0.4) 50%,
-            rgba(2, 6, 23, 0.8) 100%);
+    background: linear-gradient(to bottom,
+            rgba(2, 6, 23, 0.4) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(2, 6, 23, 0.6) 100%),
+        radial-gradient(circle at center, transparent 0%, rgba(2, 6, 23, 0.3) 100%);
 }
 
 .content {
@@ -63,38 +65,54 @@
 
 .title {
     font-family: var(--font-serif);
-    font-size: 5rem;
-    color: white;
-    line-height: 1;
+    font-size: 5.5rem;
+    background: linear-gradient(to bottom, #ffffff 30%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.1;
     font-weight: 600;
     margin: 0;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .underline {
-    height: 2px;
-    width: 80px;
-    background: var(--accent-gold);
-    margin-top: 1.5rem;
+    height: 3px;
+    width: 100px;
+    background: linear-gradient(90deg, var(--accent-gold), transparent);
+    margin-top: 2rem;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .desc {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: var(--text-secondary);
-    max-width: 500px;
+    max-width: 550px;
     line-height: 1.8;
+    margin-top: 1.5rem;
+    opacity: 0.9;
 }
 
 /* Animations */
 .fadeIn {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateX(0);
     filter: blur(0);
+}
+
+.fadeIn .underline {
+    width: 120px;
 }
 
 .fadeOut {
     opacity: 0;
-    transform: translateY(-20px) scale(0.98);
-    filter: blur(10px);
+    transform: translateX(40px);
+    filter: blur(8px);
+}
+
+.fadeOut .underline {
+    width: 0;
 }
 
 @media (max-width: 1024px) {
@@ -105,8 +123,8 @@
 
 @media (max-width: 768px) {
     .section {
-        height: 70vh;
-        min-height: 500px;
+        height: 80vh;
+        min-height: 550px;
     }
 
     .content {

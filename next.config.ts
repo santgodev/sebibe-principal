@@ -2,8 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/nuevaversion", // Important for hosting at sebibe.org/nuevaversion
-  assetPrefix: "/nuevaversion", // Ensures JS/CSS point to the subdirectory
+  trailingSlash: true,
   images: {
     unoptimized: true,
     remotePatterns: [

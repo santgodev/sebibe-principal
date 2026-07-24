@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -8,20 +8,24 @@ const outfit = Outfit({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "SEBIBE | Seminario Bíblico Internacional Berea",
   description: "Formación teológica inmersiva y comunitaria en Fusagasugá. Discipulado profundo para impactar una generación.",
   keywords: ["seminario biblico", "teologia", "berea", "formacion ministerial", "fusagasuga", "mision global", "estudio biblico"],
   authors: [{ name: "SEBIBE" }],
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "SEBIBE | Seminario Bíblico Internacional Berea",
-    description: "Formación para lo Eterno y Profundo. Vive una experiencia de discipulado inmersivo.",
+    description: "Formando líderes para la misión global",
     url: "https://sebibe.org",
     siteName: "SEBIBE",
     images: [
       {
-        url: "https://sebibe.org/wp-content/uploads/2026/03/IMG_4034-scaled.jpg",
+        url: "/assets/images/sections/hero-main.jpg",
         width: 1200,
         height: 630,
         alt: "SEBIBE Formación Teológica",
@@ -31,8 +35,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
-    apple: "https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
+    icon: "/assets/images/brand/logo-main.png",
+    apple: "/assets/images/brand/logo-main.png",
   },
 };
 
@@ -46,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={outfit.variable}>
-      <body>
+    <html lang="es" className={outfit.variable} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -56,7 +60,7 @@ export default function RootLayout({
               "@type": "EducationalOrganization",
               "name": "Seminario Bíblico Internacional Berea - SEBIBE",
               "url": "https://sebibe.org",
-              "logo": "https://sebibe.org/wp-content/uploads/2023/12/cropped-logo-general-azul.2.png",
+              "logo": "/assets/images/brand/logo-main.png",
               "description": "Formando líderes para la misión global con excelencia y compromiso.",
               "address": {
                 "@type": "PostalAddress",

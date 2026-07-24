@@ -1,0 +1,121 @@
+.page {
+    background: #020617;
+    min-height: 100vh;
+}
+
+.hero {
+    position: relative;
+    padding: 8rem 2rem 6rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Subtle background glow effect consistent with Hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    height: 100%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+}
+
+.eyebrow {
+    color: var(--accent-gold, #D4AF37);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.title {
+    color: #fff;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.title .italic {
+    font-style: italic;
+    background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.divider {
+    width: 80px;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.4);
+    margin: 3rem auto;
+    animation: scaleIn 1.2s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.desc {
+    color: var(--text-secondary, rgba(255, 255, 255, 0.7));
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.videoWrapper {
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+    /* Negative margin to pull it up slightly if needed, but here we want breathing room */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 6rem 1.5rem 4rem;
+    }
+    
+    .divider {
+        margin: 2rem auto;
+    }
+}

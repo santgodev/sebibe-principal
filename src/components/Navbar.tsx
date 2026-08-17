@@ -50,6 +50,7 @@ export default function Navbar() {
     const navLinks = [
         { name: t("inicio"), href: "/" },
         { name: t("nosotros"), href: "/nosotros" },
+        { name: "Iglesia", href: "/iglesias/impacto-river" },
         { name: t("vive_tu_llamado"), href: "/vive-tu-llamado" },
         { name: t("testimonios"), href: "/estudiantes" },
         { name: t("contacto"), href: "https://wa.me/573144787072" },
